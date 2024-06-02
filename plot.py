@@ -1,29 +1,38 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
 
-# Loading the actual and predicted values from their respective CSV files
-actual_data = pd.read_csv('scaled_actual_power_outputs.csv', header=None, nrows=300)
-predicted_data = pd.read_csv('scaled_predicted_lstm_power_outputs.csv', header=None, nrows=300)
+#plt.rcParams['font.family'] = 'serif'
+#plt.rcParams['font.size'] = 10
 
-# data is in a single column format
-actual = actual_data[0].values
-predicted = predicted_data[0].values
+# Load data from CSV files
+train_loss_snn = pd.read_csv('Training_loss_SNNs.csv', header=None)
+train_loss_lstm = pd.read_csv('Training_loss_LSTM.csv', header=None)
+val_loss_snn = pd.read_csv('Validation_loss_SNNs.csv', header=None)
+val_loss_lstm = pd.read_csv('Validation_loss_LSTM.csv', header=None)
 
-# Plotting
-fig, ax = plt.subplots()
+fig = plt.figure(figsize=(10, 6))
+ax1 = plt.subplot2grid((2, 2), (0, 0))
+ax2 = plt.subplot2grid((2, 2), (0, 1))
 
-# Plot actual values
-ax.plot(actual, "--", label="Actual")
+# Training Loss
+ax1.plot(train_loss_snn.index, train_loss_snn[0], label='SNNs')
+ax1.plot(train_loss_lstm.index, train_loss_lstm[0], label='LSTM')
+ax1.set_ylabel("Training Loss")
+#ax1.set_title("Performance Metrics")
+ax1.set_xlabel("Epochs")
+ax1.grid()
+ax1.legend()
 
-# Plot predicted values
-ax.plot(predicted, label="Predicted")
+# Validation Loss
+ax2.plot(val_loss_snn.index, val_loss_snn[0], label='SNNs')
+ax2.plot(val_loss_lstm.index, val_loss_lstm[0], label='LSTM')
+ax2.set_xlabel("Epochs")
+ax2.set_ylabel("Validation Loss")
+ax2.grid()
+ax2.legend()
 
-# Set labels and title
-ax.set_xlabel("Data Points")
-ax.set_ylabel("Scaled Power Output")
-ax.legend()
 
-# Save and show the plot
-plt.savefig('Scaled_Prediction_comparison.png')
+
+plt.tight_layout()
+plt.savefig('losses.png', dpi=300, bbox_inches='tight')
 plt.show()
