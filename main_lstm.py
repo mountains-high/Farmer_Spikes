@@ -18,6 +18,12 @@ import snntorch.functional as SF
 from snntorch import surrogate
 from snntorch import utils
 
+
+import PySAM.Pvwattsv8 as pv
+import PySAM.Grid as gr
+import PySAM.Utilityrate5 as ur
+import PySAM.Singleowner as so
+
 # use GPU if available
 device = torch.device("cuda:1") if torch.cuda.is_available() else torch.device("cpu")
 
@@ -59,11 +65,6 @@ weather_data = weather_data[["Timestamp", "Month", "Hour", "DNI", "DHI", "GHI", 
                              "Relative Humidity", "Wind Direction", "Wind Speed", "Surface Albedo",]]
 
 
-
-import PySAM.Pvwattsv8 as pv
-import PySAM.Grid as gr
-import PySAM.Utilityrate5 as ur
-import PySAM.Singleowner as so
 
 output_power = []
 
@@ -154,6 +155,10 @@ test_outputs = output_series[N_TRAIN_HOURS+N_VAL_HOURS:]
 test_dataset = TensorDataset(test_inputs, test_outputs)
 test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
 
+# design network - Keras version is taken from jlab
+#model = Sequential()
+#model.add(LSTM(50, input_shape=(train_X.shape[1], train_X.shape[2])))
+#model.add(Dense(1))
 
 
 #
@@ -165,7 +170,7 @@ class LSTM(nn.Module):
     """LSTM NN Constructor"""
     super(LSTM, self).__init__()
     
-    self.lstm = nn.LSTM(input_size, 50)
+    self.lstm = nn.LSTM(input_size, 50, batch_first=True)
     self.fc = nn.Linear(50, 1)
     
   def forward(self, x):
@@ -236,9 +241,15 @@ for epoch in tqdm(range(EPOCHS)):
   
   print(f"Epoch: {epoch+1}/{EPOCHS}, Train Loss: {avg_loss_epoch_train}, Val Loss: {avg_loss_epoch_val}") 
   
+# Convert lists to pandas DataFrames or Series
+loss_train_df = pd.DataFrame(loss_train_hist, columns=["Training Loss"])
+loss_val_df = pd.DataFrame(loss_val_hist, columns=["Validation Loss"])
+
+# Save the DataFrames to CSV files
+loss_train_df.to_csv('Training_loss_LSTM.csv', index=False)
+loss_val_df.to_csv('Validation_loss_LSTM.csv', index=False)
   
 # Plot of train and loss functions
-
 plt.figure()
 
 plt.subplot(2,1,1)
@@ -268,15 +279,15 @@ with torch.no_grad():
 
 fix, ax = plt.subplots()
 
-ax.plot(output_scaler.inverse_transform(test_outputs.cpu()[0:720]), "--", label="Actual")
-ax.plot(output_scaler.inverse_transform(predictions.cpu()[0:720]), label="Predicted")
+ax.plot(output_scaler.inverse_transform(test_outputs.cpu()[0:720]), "--", label="Actual") #was 720
+ax.plot(output_scaler.inverse_transform(predictions.cpu()[0:720]), label="Predicted")     #was 720
 
 ax.set_xlabel("Hours")
 ax.set_ylabel("Power Output (W)")
 
 ax.legend()
 ax.grid()
-plt.savefig('Prediction')
+plt.savefig('Prediction_LSTM')
 plt.show()
 
 #===========================================================
@@ -284,7 +295,7 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 
 # Extract the first 720 values for predictions and actual outputs
-predictions_720 = predictions.cpu().numpy()[0:720]
+predictions_720 = predictions.cpu().numpy()[0:720] #org [0:720]
 actual_720 = test_outputs.cpu().numpy()[0:720]
 
 # Initialize separate MinMaxScalers for actual and predicted

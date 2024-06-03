@@ -18,7 +18,10 @@ import snntorch.functional as SF
 from snntorch import surrogate
 from snntorch import utils
 
-
+import PySAM.Pvwattsv8 as pv
+import PySAM.Grid as gr
+import PySAM.Utilityrate5 as ur
+import PySAM.Singleowner as so
 
 # use GPU if available
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -43,7 +46,6 @@ for year in range(2000, 2021):
   path = os.path.join(DATA_PATH, f"{LOCATION_PREFIX}{str(year)}.csv")
   filepaths.append(path)
   
-  
   weather_data = []
 
 for path in filepaths:
@@ -61,11 +63,6 @@ weather_data = weather_data[["Timestamp", "Month", "Hour", "DNI", "DHI", "GHI", 
                              "Relative Humidity", "Wind Direction", "Wind Speed", "Surface Albedo",]]
 
 
-
-import PySAM.Pvwattsv8 as pv
-import PySAM.Grid as gr
-import PySAM.Utilityrate5 as ur
-import PySAM.Singleowner as so
 
 output_power = []
 
@@ -293,13 +290,20 @@ for epoch in tqdm(range(EPOCHS)):
   
   print(f"Epoch: {epoch+1}/{EPOCHS}, Train Loss: {avg_loss_epoch_train}, Val Loss: {avg_loss_epoch_val}") 
   
-  
-  # Plot of network before training
+ 
+# Convert lists to pandas DataFrames
+loss_train_df = pd.DataFrame(loss_train_hist, columns=["Training Loss"])
+loss_val_df = pd.DataFrame(loss_val_hist, columns=["Validation Loss"])
+
+# Saving the DataFrames to CSV files
+loss_train_df.to_csv('Training_loss_SNNs.csv', index=False)
+loss_val_df.to_csv('Validation_loss_SNNs.csv', index=False) 
+# Plot of network before training
 
 fig, ax = plt.subplots()
 # plot expected output
 ax.plot(sample_outputs.squeeze(1).cpu(), '--', label="Target")
-# plot first 5 membrane potential outputs
+# ploting first 5 membrane potential outputs
 for idx in range(0, min(TIMESTEPS, 5)):
   ax.plot(sample_mem[idx,:,0].cpu(), alpha=0.6)
   
@@ -310,7 +314,6 @@ ax.legend(loc='best')
 plt.show()
 
 # Plot of train and loss functions
-
 plt.figure()
 
 plt.subplot(2,1,1)
@@ -332,7 +335,6 @@ plt.show()
 
 
 # Run on test data
-
 snn_net.eval()
 with torch.no_grad():
   predictions = snn_net(test_inputs)
@@ -341,7 +343,6 @@ with torch.no_grad():
 #predictions = output_scaler.inverse_transform(predictions)
 
 fix, ax = plt.subplots()
-
 ax.plot(output_scaler.inverse_transform(test_outputs.cpu()[0:720]), "--", label="Actual")
 ax.plot(output_scaler.inverse_transform(predictions.cpu()[0,0:720,:]), label="Predicted", alpha=0.6, color='green')
 
@@ -359,32 +360,27 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import numpy as np
 
-# Assuming predictions is a PyTorch tensor with the shape [1, n_predictions, n_features]
-# For simplicity and clarity, the code will be adjusted to handle common shapes directly
-
-# Convert PyTorch tensors to numpy and remove unnecessary dimensions
-# Ensure the data is 2D: (720, number_of_features), here assuming 1 feature for simplicity
 predictions_720 = predictions.cpu().numpy()[0, :720].reshape(-1, 1)
 actual_720 = test_outputs.cpu().numpy()[:720].reshape(-1, 1)
 
 # Initialize MinMaxScaler
 scaler = MinMaxScaler(feature_range=(0, 1))
 
-# Scale the actual values
+# Scaling the actual values
 actual_720_scaled = scaler.fit_transform(actual_720)
 
-# Reset the scaler for predictions to ensure independent scaling
+# Reseting the scaler for predictions to ensure independent scaling
 scaler = MinMaxScaler(feature_range=(0, 1))
 predictions_720_scaled = scaler.fit_transform(predictions_720)
 
 # Round the predicted power output to keep only two decimal points
 predictions_720_scaled_rounded = np.round(predictions_720_scaled, 2)
 
-# Create DataFrames from the scaled arrays
+# Creating DataFrames from the scaled arrays
 actual_df = pd.DataFrame(actual_720_scaled, columns=OUTPUT_COLUMNS)
 predicted_df = pd.DataFrame(predictions_720_scaled_rounded, columns=['Predicted Power Output'])
 
-# Save the DataFrames to separate CSV files
+# Saving the DataFrames to separate CSV files
 actual_df.to_csv('actual_snn_power_outputs_first_720_scaled.csv', index=False)
 predicted_df.to_csv('predicted_power_outputs_snn_first_720_scaled.csv', index=False)
 

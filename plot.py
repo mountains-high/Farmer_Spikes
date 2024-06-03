@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 #plt.rcParams['font.size'] = 10
 
 # Load data from CSV files
-train_loss_snn = pd.read_csv('Training_loss_SNNs.csv', header=None)
-train_loss_lstm = pd.read_csv('Training_loss_LSTM.csv', header=None)
-val_loss_snn = pd.read_csv('Validation_loss_SNNs.csv', header=None)
-val_loss_lstm = pd.read_csv('Validation_loss_LSTM.csv', header=None)
+train_loss_snn = pd.read_csv('./outputs/Training_loss_SNNs.csv', header=None)
+train_loss_lstm = pd.read_csv('./outputs/Training_loss_LSTM.csv', header=None)
+val_loss_snn = pd.read_csv('./outputs/Validation_loss_SNNs.csv', header=None)
+val_loss_lstm = pd.read_csv('./outputs/Validation_loss_LSTM.csv', header=None)
 
 fig = plt.figure(figsize=(10, 6))
 ax1 = plt.subplot2grid((2, 2), (0, 0))
@@ -31,8 +31,6 @@ ax2.set_ylabel("Validation Loss")
 ax2.grid()
 ax2.legend()
 
-
-
 plt.tight_layout()
-plt.savefig('losses.png', dpi=300, bbox_inches='tight')
+plt.savefig('./results/losses.png', dpi=300, bbox_inches='tight')
 plt.show()
