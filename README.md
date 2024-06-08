@@ -13,6 +13,10 @@ pip install -r requirements.txt
 
 We provide a Jupyter notebook [here](https://github.com/mountains-high/AgTech_Project_H/blob/main/AgTech_97_project_tutorial.ipynb), which includes documentation and information about our developed scripts and methodologies. This can be run in a Google Collaboratory environment with prerequisites [here](https://github.com/mountains-high/AgTech_Project_H/blob/main/requirements.txt).
 
+# Code Execution of Standalone Scripts
+
+we provide executable code in the form of Python scripts. Simulations can be run by configuring and executing run.py in each respective approach.
+
 # Acknowledgement
 
 Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code, and assistance with dataset processing
