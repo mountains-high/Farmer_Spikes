@@ -8,3 +8,7 @@ pip install -r requirements.txt
 # Jupyter Notebook
 
 We provide a Jupyter notebook here, which includes documentation and information about our developed scripts and methodologies. This can be run in a Google Collaboratory environment with prerequisites here.
+
+# Acknowledgement
+
+Special thanks to jLab for providing the dataset, existing code, and assistance with dataset processing
