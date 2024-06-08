@@ -11,4 +11,4 @@ We provide a Jupyter notebook [here](https://github.com/mountains-high/AgTech_Pr
 
 # Acknowledgement
 
-Special thanks to jLab for providing the dataset, existing code, and assistance with dataset processing
+Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code, and assistance with dataset processing
