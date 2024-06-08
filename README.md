@@ -5,6 +5,7 @@ This project aims to leverage spiking neural networks for accurate next-day pred
 # Requirements
 ```bash
 pip install -r requirements.txt
+```
 
 # Jupyter Notebook
 
