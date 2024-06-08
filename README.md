@@ -2,7 +2,7 @@
 
 This project aims to leverage spiking neural networks for accurate next-day prediction of solar irradiance, which can have a profoundly positive impact on sustainable agricultural practices worldwide. By optimizing the utilization of solar energy systems, farming operations can reduce their reliance on fossil fuels, lower operational costs, and minimize their environmental footprint. Improved energy forecasting enables better resource allocation and integration of renewables into the power grid, promoting a transition towards clean energy sources. 
 
-<img src="https://github.com/mountains-high/AgTech_Project_H/blob/main/images/3.%20Comparison_LSTM_SNNs.png" alt="Result" width="600"/>
+<img src="https://github.com/mountains-high/AgTech_Project_H/blob/main/images/3.%20Comparison_LSTM_SNNs.png" alt="Result" width="600" style="display: block; margin: auto;"/>
 
 # Requirements
 
