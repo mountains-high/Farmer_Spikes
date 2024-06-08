@@ -33,4 +33,4 @@ pip install -r requirements.txt
 
 # Acknowledgement
 
-Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code, and assistance with dataset processing
+Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code (LSTM), and assistance with dataset processing
