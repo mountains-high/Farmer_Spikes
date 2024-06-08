@@ -15,7 +15,7 @@ We provide a Jupyter notebook [here](https://github.com/mountains-high/AgTech_Pr
 
 # Code Execution of Standalone Scripts
 
-we provide executable code in the form of Python scripts. Simulations can be run by configuring and executing run.py in each respective approach.
+We also offer executable code in the form of Python scripts. To run simulations, configure and execute either `main_snn_network.py` or `main_lstm.py`, depending on the chosen approach.
 
 # Acknowledgement
 
