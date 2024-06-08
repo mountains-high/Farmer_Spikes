@@ -4,3 +4,7 @@ This project aims to leverage spiking neural networks for accurate next-day pred
 
 # Requirements
 pip install -r requirements.txt
+
+# Jupyter Notebook
+
+We provide a Jupyter notebook here, which includes documentation and information about our developed scripts and methodologies. This can be run in a Google Collaboratory environment with prerequisites here.
