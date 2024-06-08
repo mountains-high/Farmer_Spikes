@@ -22,7 +22,7 @@ We provide a Jupyter notebook [here](https://github.com/mountains-high/AgTech_Pr
 
 We also offer executable code in the form of Python scripts. To run simulations, configure and execute either `main_snn_network.py` or `main_lstm.py`, depending on the chosen approach.
 
-To run all standalone scripts, a working `Python` (≥3.6) interpreter and the `pip` package manager. All required libraries and packages can be installed using `pip install -r requirements.txt.` To avoid potential package conflicts, the use of a `conda` environment is recommended. The following commands can be used to create and activate a separate `conda` environment, clone this repository, and to install all dependencies:
+To run all standalone scripts, you'll need a working `Python` (≥3.6) interpreter and the `pip` package manager. All required libraries and packages can be installed using `pip install -r requirements.txt.` To avoid potential package conflicts, the use of a `conda` environment is recommended. The following commands can be used to create and activate a separate `conda` environment, clone this repository, and to install all dependencies:
 ```bash
 conda create -n spike_farmer python=3.8
 conda activate spike_farmer
