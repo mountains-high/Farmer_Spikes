@@ -2,18 +2,6 @@
 
 This project aims to leverage spiking neural networks for accurate next-day prediction of solar irradiance, which can have a profoundly positive impact on sustainable agricultural practices worldwide. By optimizing the utilization of solar energy systems, farming operations can reduce their reliance on fossil fuels, lower operational costs, and minimize their environmental footprint. Improved energy forecasting enables better resource allocation and integration of renewables into the power grid, promoting a transition towards clean energy sources. 
 
-<p align="center">
-  <img src="https://github.com/mountains-high/AgTech_Project_H/blob/main/images/3.%20Comparison_LSTM_SNNs.png" alt="Result" width="600"/>
-</p>
-
-## Energy Efficiency
-
-Below is a comparison of energy efficiency for various approaches:
-
-<p align="center">
-  <img src="https://github.com/mountains-high/Farmer_Spikes/blob/main/images/Energy%20Efficiency%20Comparison.png" alt="Energy Efficiency Comparison" width="500"/>
-</p>
-
 # Requirements
 
 To install requirements:
@@ -37,6 +25,17 @@ git clone https://github.com/mountains-high/AgTech_Project_H.git
 cd AgTech_Project_H
 pip install -r requirements.txt
 ```
+<p align="center">
+  <img src="https://github.com/mountains-high/AgTech_Project_H/blob/main/images/3.%20Comparison_LSTM_SNNs.png" alt="Result" width="600"/>
+</p>
+
+## Energy Efficiency
+
+Below is a comparison of energy efficiency for various approaches:
+
+<p align="center">
+  <img src="https://github.com/mountains-high/Farmer_Spikes/blob/main/images/Energy%20Efficiency%20Comparison.png" alt="Energy Efficiency Comparison" width="500"/>
+</p>
 
 # Acknowledgement
 
