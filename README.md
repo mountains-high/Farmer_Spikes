@@ -9,7 +9,8 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
-# Jupyter Notebook
+# Usage
+## Jupyter Notebook
 
 We provide a Jupyter notebook [here](https://github.com/mountains-high/AgTech_Project_H/blob/main/AgTech_97_project_tutorial.ipynb), which includes documentation and information about our developed scripts and methodologies. This can be run in a Google Collaboratory environment with prerequisites [here](https://github.com/mountains-high/AgTech_Project_H/blob/main/requirements.txt).
 
