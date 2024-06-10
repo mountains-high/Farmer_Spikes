@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 We provide a Jupyter notebook [here](https://github.com/mountains-high/AgTech_Project_H/blob/main/AgTech_97_project_tutorial.ipynb), which includes documentation and information about our developed scripts and methodologies. This can be run in a Google Collaboratory environment with prerequisites [here](https://github.com/mountains-high/AgTech_Project_H/blob/main/requirements.txt).
 
-# Code Execution of Standalone Scripts
+## Code Execution of Standalone Scripts
 
 We also offer executable code in the form of Python scripts. To run simulations, configure and execute either `main_snn_network.py` or `main_lstm.py`, depending on the chosen approach.
 
