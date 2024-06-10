@@ -6,6 +6,11 @@ This project aims to leverage spiking neural networks for accurate next-day pred
   <img src="https://github.com/mountains-high/AgTech_Project_H/blob/main/images/3.%20Comparison_LSTM_SNNs.png" alt="Result" width="600"/>
 </p>
 
+## Energy Efficiency
+
+Below is a comparison of energy efficiency for various approaches:
+
+![Energy Efficiency Comparison](https://github.com/mountains-high/Farmer_Spikes/blob/main/images/Energy%20Efficiency%20Comparison.png)
 
 # Requirements
 
