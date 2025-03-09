@@ -43,4 +43,5 @@ Below is a comparison of energy efficiency for various approaches:
 
 # Acknowledgement
 
-Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code (LSTM), and assistance with dataset processing
+Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code (LSTM), and assistance with dataset processing. 
+We thank Yawen Guo and John Madden from jLab for their help with dataset processing and discussions.
