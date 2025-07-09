@@ -37,10 +37,6 @@ Below is a comparison of energy efficiency for various approaches:
   <img src="https://github.com/mountains-high/Farmer_Spikes/blob/main/images/Energy%20Efficiency%20Comparison.png" alt="Energy Efficiency Comparison" width="500"/>
 </p>
 
-<p align="center">
-  <img src="https://github.com/mountains-high/AgTech_Project_H/blob/main/images/3.%20Comparison_LSTM_SNNs.png" alt="Result" width="600"/>
-</p>
-
 # Acknowledgement
 
 Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code (LSTM), and assistance with dataset processing. 
