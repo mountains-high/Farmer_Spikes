@@ -49,3 +49,14 @@ This paper was published in [BayLearn 2024 Bay Area Machine Learning Symposium](
 Leveraging Spiking Neural Networks for Solar Energy Prediction in Agriculture  
 A Kembay, RJ Zhu, N Kuipers, J Eshraghian, C Josephson  
 Bay Area Machine Learning Symposium (BayLearn 2024)
+
+## BibTeX
+
+```bibtex
+@inproceedings{kembay2024leveraging,
+  title={Leveraging Spiking Neural Networks for Solar Energy Prediction in Agriculture},
+  author={Kembay, A and Zhu, RJ and Kuipers, N and Eshraghian, J and Josephson, C},
+  booktitle={Bay Area Machine Learning Symposium (BayLearn 2024)},
+  year={2024}
+}
+```
