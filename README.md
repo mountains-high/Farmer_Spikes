@@ -46,10 +46,6 @@ We thank Yawen Guo and John Madden from jLab for their help with dataset process
 
 This paper was published in [BayLearn 2024 Bay Area Machine Learning Symposium](https://baylearn-org.github.io/www/2024/submissions.html#:~:text=Leveraging%20Spiking%20Neural%20Networks%20for%20Solar%20Energy%20Prediction%20in%20Agriculture). If you use this repository, please cite as:
 
-Leveraging Spiking Neural Networks for Solar Energy Prediction in Agriculture  
-A Kembay, RJ Zhu, N Kuipers, J Eshraghian, C Josephson  
-Bay Area Machine Learning Symposium (BayLearn 2024)
-
 ## BibTeX
 
 ```bibtex
