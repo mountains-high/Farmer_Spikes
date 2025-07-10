@@ -33,10 +33,23 @@ pip install -r requirements.txt
 
 Below is a comparison of energy efficiency for various approaches:
 
-<p align="center">
-  <img src="https://github.com/mountains-high/Farmer_Spikes/blob/main/results/Energy%20Efficiency%20Comparison.png" alt="Energy Efficiency Comparison" width="500"/>
-</p>
 
 # Acknowledgement
 
-Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code (LSTM), and assistance with dataset processing
+Special thanks to [jLab](https://github.com/jlab-sensing) for providing the dataset, existing code (LSTM), and assistance with dataset processing. 
+We thank Yawen Guo and John Madden from jLab for their help with dataset processing and discussions.
+
+# Citation
+
+This paper was published in [BayLearn 2024 Bay Area Machine Learning Symposium](https://baylearn-org.github.io/www/2024/submissions.html#:~:text=Leveraging%20Spiking%20Neural%20Networks%20for%20Solar%20Energy%20Prediction%20in%20Agriculture). If you use this repository, please cite as:
+
+## BibTeX
+
+```bibtex
+@inproceedings{kembay2024leveraging,
+  title={Leveraging Spiking Neural Networks for Solar Energy Prediction in Agriculture},
+  author={Kembay, A and Zhu, RJ and Kuipers, N and Eshraghian, J and Josephson, C},
+  booktitle={Bay Area Machine Learning Symposium (BayLearn 2024)},
+  year={2024}
+}
+```
