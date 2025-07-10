@@ -33,6 +33,9 @@ pip install -r requirements.txt
 
 Below is a comparison of energy efficiency for various approaches:
 
+<p align="center">
+  <img src="https://github.com/mountains-high/Farmer_Spikes/blob/main/images/Energy%20Efficiency%20Comparison.png" alt="Energy Efficiency Comparison" width="500"/>
+</p>
 
 # Acknowledgement
 
